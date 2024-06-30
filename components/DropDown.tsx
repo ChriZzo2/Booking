@@ -34,7 +34,7 @@ export type UserType = {
 };
 
 type Props = {
-    user: UserType
+    user: UserType | null
 }
 
 const DropDown = ({user}: Props) => {
@@ -43,15 +43,15 @@ const DropDown = ({user}: Props) => {
             <DropdownMenuTrigger asChild>
                 <div className='flex items-center gap-2 cursor-pointer'>
                     <Avatar>
-                        <AvatarImage src={user.picture}/>
-                        <AvatarFallback className='bg-accent text-white'>{`${user.given_name[0]} ${user.family_name[0]}`}</AvatarFallback>
+                        <AvatarImage src={user?.picture || ''}/>
+                        <AvatarFallback className='bg-accent text-white'>{`${user?.given_name ? user.given_name[0] : ""} ${user?.family_name ? user.family_name[0] : ''}`}</AvatarFallback>
                     </Avatar>
                     <div>
                         <div className='flex gap-1 font-semibold'>
-                            <p>{user.given_name}</p>
-                            <p>{user.family_name}</p>
+                            <p>{user?.given_name}</p>
+                            <p>{user?.family_name}</p>
                         </div>
-                        <p className='text-sm font-semibold'>{user.email}</p>
+                        <p className='text-sm font-semibold'>{user?.email}</p>
                     </div>
                 </div>
             </DropdownMenuTrigger>
