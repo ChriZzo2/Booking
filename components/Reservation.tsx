@@ -41,7 +41,7 @@ type Props = {
     reservations: {
         data: AttributesType[]
     }
-    userData: UserType
+    userData: UserType | null
     isUserAuthenticated: boolean
     room: roomType
 }
@@ -123,9 +123,9 @@ const Reservation = ({reservations, userData, isUserAuthenticated, room}: Props)
         } else {
             const data = {
                 data: {
-                    firstname: userData.given_name,
-                    lastname: userData.family_name,
-                    email: userData.email,
+                    firstname: userData?.given_name,
+                    lastname: userData?.family_name,
+                    email: userData?.email,
                     checkin: checkInDate ? formatDateForDB(checkInDate) : null,
                     checkOut: checkOutDate ? formatDateForDB(checkOutDate) : null,
                     room: room.data.id

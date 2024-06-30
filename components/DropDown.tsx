@@ -15,24 +15,23 @@ import {LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import {FaCalendarCheck, FaHome, FaSignOutAlt} from "react-icons/fa";
 
 export type UserType = {
-    family_name: string,
-    given_name: string,
-    picture: string,
-    email: string,
-    id: string,
-    properties: {
-        city: string,
-        industry: string,
-        job_title: string,
-        middle_name: string,
-        postcode: string,
-        salutation: string,
-        state_region: string,
-        street_address: string,
-        street_address_2: string
-    }
-
-}
+    id: string;
+    email: string | null;
+    given_name: string | null;
+    family_name: string | null;
+    picture: string | null;
+    properties?: {
+        usr_city?: string;
+        usr_industry?: string;
+        usr_job_title?: string;
+        usr_middle_name?: string;
+        usr_postcode?: string;
+        usr_salutation?: string;
+        usr_state_region?: string;
+        usr_street_address?: string;
+        usr_street_address_2?: string;
+    };
+};
 
 type Props = {
     user: UserType
