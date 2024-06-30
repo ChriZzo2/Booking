@@ -9,7 +9,7 @@ export type roomType = {
     data: DataType
 }
 
-const getRoomData = async ({ params: any }) => {
+const getRoomData = async ({ params }: {params: any}) => {
     try {
         const res = await axios.get(`http://127.0.0.1:1337/api/rooms/${params.id}?populate=*`);
         return res.data;
