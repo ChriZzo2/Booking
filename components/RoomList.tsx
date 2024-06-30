@@ -85,7 +85,8 @@ const RoomList = ({rooms}: Props) => {
             </Tabs>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'>
                 {filteredRooms.map(el => {
-                    const imgURL = `http://127.0.0.1:1337${el.attributes.image.data?.attributes.url}`
+                    const imgURL = el.attributes.image.data.attributes.url
+                    console.log(imgURL)
                     return (
                         <div key={el.id}>
                             <Link href={`/room/${el.id}`}>

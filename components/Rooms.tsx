@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getRooms = async () => {
     try {
-        const res = await axios.get(`http://127.0.0.1:1337/api/rooms?populate=*`);
+        const res = await axios.get(`https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/rooms?populate=*`);
         return res.data;
     } catch (error) {
         console.error('Error fetching reservation data:', error);

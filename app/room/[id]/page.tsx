@@ -11,7 +11,7 @@ export type roomType = {
 
 const getRoomData = async ({ params }: {params: any}) => {
     try {
-        const res = await axios.get(`http://127.0.0.1:1337/api/rooms/${params.id}?populate=*`);
+        const res = await axios.get(`https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/rooms/${params.id}?populate=*`);
         return res.data;
     } catch (error) {
         console.error('Error fetching room data:', error);
@@ -21,7 +21,7 @@ const getRoomData = async ({ params }: {params: any}) => {
 
 const getReservationData = async () => {
     try {
-        const res = await axios.get(`http://127.0.0.1:1337/api/reservations?populate=*` );
+        const res = await axios.get(`https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/reservations?populate=*` );
         return res.data;
     } catch (error) {
         console.error('Error fetching reservation data:', error);
@@ -37,7 +37,7 @@ const RoomDetails = async ({params}: { params: any }) => {
     const userData =  await getUser()
 
 
-    const imgURL = `http://127.0.0.1:1337${room.data.attributes.image.data.attributes.url}`
+    const imgURL = room.data.attributes.image.data.attributes.url
     console.log(imgURL)
     return (
         <section className='min-h-[80vh]'>

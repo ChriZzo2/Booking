@@ -54,11 +54,13 @@ export type MessageErrorType = {
 const postData = async (url: string, data: object) => {
     const settings = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Origin': 'https://wealthy-broccoli-070ad62d8a.strapiapp.com/'
         }
     }
     try {
         const res = await axios.post(url, data, settings)
+        debugger
         return res.data
     } catch (error) {
         console.log(error)
@@ -132,7 +134,7 @@ const Reservation = ({reservations, userData, isUserAuthenticated, room}: Props)
                 }
             }
 
-            postData('http://127.0.0.1:1337/api/reservations', data)
+            postData('https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/reservations', data)
             setMessage({
                 message: "Your booking for the selected dates has been successfully confirmed. We are looking forward to hosting you and ensuring a comfortable stay.",
                 type: 'success'

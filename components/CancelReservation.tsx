@@ -24,7 +24,7 @@ type Props = {
 
 const deleteData = async (id: number) => {
     try {
-        const res = await axios.delete(`http://127.0.0.1:1337/api/reservations/${id}`)
+        const res = await axios.delete(`https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/reservations/${id}`)
         return res.data
     } catch (error){
         console.log(error)

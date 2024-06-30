@@ -6,7 +6,7 @@ import axios from "axios";
 
 const getUserReservation = async (email: any) => {
     try {
-        const res = await axios.get(`http://127.0.0.1:1337/api/reservations?[filters][email][$eq]=${email}&populate=*`);
+        const res = await axios.get(`https://wealthy-broccoli-070ad62d8a.strapiapp.com/api/reservations?[filters][email][$eq]=${email}&populate=*`);
         return res.data;
     } catch (error) {
         console.error('Error fetching reservation data:', error);
